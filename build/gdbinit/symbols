@@ -1,0 +1,9 @@
+
+
+# Load bootloader symbols
+set confirm off
+    add-symbol-file C:/PHUOCHOA/KLTN/Code/esp32-hello-world/build/bootloader/bootloader.elf
+set confirm on
+
+# Load application symbols
+file C:/PHUOCHOA/KLTN/Code/esp32-hello-world/build/hello_world.elf

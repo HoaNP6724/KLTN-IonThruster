@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Điều Khiển ESP32 - Xung, Gió & Relay</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --border: #e2e8f0;
+      --border-focus: #3b82f6;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --success: #16a34a;
+      --success-light: #dcfce7;
+      --danger: #dc2626;
+      --danger-light: #fee2e2;
+      --radius: 16px;
+      --shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 540px;
+      /* Tối ưu hoàn hảo cho màn hình điện thoại & tablet */
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* Header tối giản */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 4px 4px 8px 4px;
+    }
+
+    .header-title h1 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-main);
+      letter-spacing: -0.02em;
+    }
+
+    .header-title p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #94a3b8;
+    }
+
+    .status-pill.online {
+      color: var(--success);
+      border-color: #bbf7d0;
+      background: var(--success-light);
+    }
+
+    .status-pill.online .dot {
+      background: var(--success);
+    }
+
+    .status-pill.offline {
+      color: var(--danger);
+      border-color: #fecaca;
+      background: var(--danger-light);
+    }
+
+    .status-pill.offline .dot {
+      background: var(--danger);
+    }
+
+    .status-pill.demo {
+      color: #d97706;
+      border-color: #fde68a;
+      background: #fef3c7;
+    }
+
+    .status-pill.demo .dot {
+      background: #d97706;
+    }
+
+    /* Card cơ bản */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .card-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* KHỐI 1: ĐIỀU KHIỂN ON/OFF */
+    .relay-card {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .relay-switch-btn {
+      width: 100%;
+      height: 64px;
+      border-radius: 14px;
+      border: 2px solid #cbd5e1;
+      background: #f1f5f9;
+      color: #475569;
+      font-size: 1.15rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+
+    .relay-switch-btn:active {
+      transform: scale(0.98);
+    }
+
+    .relay-switch-btn.on {
+      background: var(--success);
+      border-color: var(--success);
+      color: #ffffff;
+      box-shadow: 0 6px 18px rgba(22, 163, 74, 0.28);
+    }
+
+    .switch-indicator {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #94a3b8;
+      transition: all 0.2s;
+    }
+
+    .relay-switch-btn.on .switch-indicator {
+      background: #ffffff;
+      box-shadow: 0 0 10px #ffffff;
+    }
+
+    /* KHỐI 2: TỐC ĐỘ GIÓ */
+    .wind-display-row {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+
+    .wind-speed-val {
+      font-size: 3.2rem;
+      font-weight: 800;
+      font-family: 'JetBrains Mono', monospace;
+      line-height: 1;
+      color: #0f172a;
+    }
+
+    .wind-speed-unit {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .wind-sub-info {
+      margin-top: 8px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .wind-badge {
+      background: #e0f2fe;
+      color: #0284c7;
+      font-weight: 600;
+      font-size: 0.78rem;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+
+    /* KHỐI 3: MODULE XUNG */
+    .current-pwm-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 14px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .pwm-stat-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .pwm-stat-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .pwm-stat-val {
+      font-size: 1.25rem;
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--primary);
+    }
+
+    /* Form nhập PWM */
+    .pwm-form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #334155;
+    }
+
+    .input-group {
+      display: flex;
+      gap: 8px;
+    }
+
+    .form-input {
+      flex: 1;
+      height: 48px;
+      padding: 0 14px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 1rem;
+      font-family: 'JetBrains Mono', monospace;
+      background: #ffffff;
+      outline: none;
+      color: var(--text-main);
+      transition: border-color 0.15s;
+    }
+
+    .form-input:focus {
+      border-color: var(--border-focus);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+    }
+
+    .form-select {
+      height: 48px;
+      padding: 0 12px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 0.95rem;
+      background: #ffffff;
+      color: var(--text-main);
+      outline: none;
+      cursor: pointer;
+    }
+
+    /* Nhãn đơn vị % cho ô nhập */
+    .input-addon {
+      height: 48px;
+      min-width: 54px;
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: #f1f5f9;
+      color: #475569;
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1rem;
+    }
+
+    /* Nút bấm hành động */
+    .btn-submit {
+      width: 100%;
+      height: 50px;
+      background: var(--primary);
+      color: #ffffff;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background-color 0.15s;
+      margin-top: 4px;
+    }
+
+    .btn-submit:hover {
+      background: var(--primary-hover);
+    }
+
+    .btn-submit:active {
+      transform: scale(0.99);
+    }
+
+    .btn-read-row {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 4px;
+    }
+
+    .btn-link {
+      background: none;
+      border: none;
+      color: var(--primary);
+      font-size: 0.82rem;
+      font-weight: 500;
+      cursor: pointer;
+      padding: 4px 6px;
+    }
+
+    .btn-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Chế độ cấu hình phụ (thu gọn ở dưới) */
+    .settings-drawer {
+      margin-top: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      padding: 0 4px;
+    }
+
+    .btn-sm-text {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    /* Toast thông báo */
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%) translateY(30px);
+      background: #0f172a;
+      color: #ffffff;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.25s ease;
+      z-index: 999;
+      white-space: nowrap;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="header-title">
+        <h1>Động cơ đẩy Ion</h1>
+        <p>Hệ thống điều khiển và giám sát từ xa qua IoT</p>
+      </div>
+      <div class="status-pill" id="connPill">
+        <span class="dot"></span>
+        <span id="connText">Đang kết nối</span>
+      </div>
+    </header>
+
+    <!-- 1. HIỂN THỊ TỐC ĐỘ GIÓ -->
+    <section class="card">
+      <div class="card-title">Tốc Độ Gió Hiện Tại</div>
+      <div class="wind-display-row">
+        <span class="wind-speed-val" id="windSpeed">0.0</span>
+        <span class="wind-speed-unit">m/s</span>
+      </div>
+      <div class="wind-sub-info">
+        <span class="wind-badge" id="windLevel">Cấp 0</span>
+        <span id="windDesc">Lặng gió</span>
+        <span style="margin-left: auto; font-size: 0.75rem; color: #94a3b8;">Cập nhật: 2s</span>
+      </div>
+    </section>
+
+    <!-- 2. HIỂN THỊ VÀ CÀI ĐẶT XUNG (PWM) -->
+    <section class="card">
+      <div class="card-title">
+        <span>Module Xung (XY-LPWM)</span>
+        <button type="button" class="btn-link" onclick="readPWMStatus()">Đọc lại</button>
+      </div>
+
+      <!-- Hiển thị giá trị hiện tại -->
+      <div class="current-pwm-box">
+        <div class="pwm-stat-item">
+          <span class="pwm-stat-label">Tần số hiện tại</span>
+          <span class="pwm-stat-val" id="curFreq">--</span>
+        </div>
+        <div class="pwm-stat-item">
+          <span class="pwm-stat-label">Duty Cycle hiện tại</span>
+          <span class="pwm-stat-val" id="curDuty">--</span>
+        </div>
+      </div>
+
+      <!-- Nhập và Cập nhật giá trị mới -->
+      <form class="pwm-form" onsubmit="event.preventDefault(); applyPWM();">
+        <div class="form-group">
+          <label class="form-label" for="newFreq">Cài đặt tần số mới:</label>
+          <div class="input-group">
+            <input type="number" id="newFreq" class="form-input" placeholder="VD: 100" min="1" max="150" step="any"
+              value="100">
+            <select id="freqUnit" class="form-select">
+              <option value="hz">Hz</option>
+              <option value="khz">kHz</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="newDuty">Cài đặt Duty Cycle mới (%):</label>
+          <div class="input-group">
+            <input type="number" id="newDuty" class="form-input" placeholder="VD: 50" min="1" max="100" step="1"
+              value="50">
+            <div class="input-addon">%</div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-submit">
+          Cập Nhật Giá Trị Mới
+        </button>
+      </form>
+    </section>
+
+    <!-- 3. ĐIỀU KHIỂN ON/OFF (RELAY) -->
+    <section class="card relay-card">
+      <div class="card-title">Điều Khiển Rơ-le</div>
+      <button type="button" class="relay-switch-btn" id="relayBtn" onclick="toggleRelay()">
+        <span class="switch-indicator"></span>
+        <span id="relayText">OFF</span>
+      </button>
+    </section>
+
+    <!-- Footer & Cấu hình phụ -->
+    <div class="settings-drawer">
+      <span id="hostStatusText">Host: Tự động</span>
+      <button type="button" class="btn-sm-text" onclick="promptHost()">Đổi IP</button>
+      <button type="button" class="btn-sm-text" id="btnDemoToggle" onclick="toggleDemo()">Bật Demo</button>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast">Thông báo</div>
+
+  <script>
+    let espBaseUrl = "";
+    let isDemoMode = false;
+    let relayState = false;
+
+    // Tự động nhận diện host
+    if (window.location.protocol.startsWith('http')) {
+      espBaseUrl = window.location.origin;
+      document.getElementById('hostStatusText').textContent = "Host: " + window.location.host;
+    } else {
+      // Mở bằng file://
+      isDemoMode = true;
+      document.getElementById('hostStatusText').textContent = "Host: file:// (Demo)";
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 2500);
+    }
+
+    function updateConnBadge(status) {
+      const pill = document.getElementById('connPill');
+      const text = document.getElementById('connText');
+      if (isDemoMode) {
+        pill.className = "status-pill demo";
+        text.textContent = "Chế độ Demo";
+        return;
+      }
+      if (status) {
+        pill.className = "status-pill online";
+        text.textContent = "Trực tuyến";
+      } else {
+        pill.className = "status-pill offline";
+        text.textContent = "Mất kết nối";
+      }
+    }
+
+    function toggleDemo() {
+      isDemoMode = !isDemoMode;
+      const btn = document.getElementById('btnDemoToggle');
+      if (isDemoMode) {
+        btn.textContent = "Tắt Demo";
+        showToast("Đã bật chế độ Demo mô phỏng");
+      } else {
+        btn.textContent = "Bật Demo";
+        showToast("Đã chuyển sang kết nối ESP32");
+      }
+      updateConnBadge(false);
+      if (!isDemoMode) fetchAllStatus();
+    }
+
+    function promptHost() {
+      const current = espBaseUrl || "http://192.168.4.1";
+      const val = prompt("Nhập địa chỉ IP của ESP32:", current);
+      if (val !== null) {
+        espBaseUrl = val.startsWith("http") ? val : "http://" + val;
+        document.getElementById('hostStatusText').textContent = "Host: " + espBaseUrl.replace(/^https?:\/\//, '');
+        isDemoMode = false;
+        document.getElementById('btnDemoToggle').textContent = "Bật Demo";
+        showToast("Đã cập nhật IP: " + espBaseUrl);
+        fetchAllStatus();
+      }
+    }
+
+    /* 1. RELAY */
+    function updateRelayUI(state) {
+      relayState = state;
+      const btn = document.getElementById('relayBtn');
+      const txt = document.getElementById('relayText');
+      if (state) {
+        btn.classList.add('on');
+        txt.textContent = "ON";
+      } else {
+        btn.classList.remove('on');
+        txt.textContent = "OFF";
+      }
+    }
+
+    async function toggleRelay() {
+      const targetState = !relayState;
+      if (isDemoMode) {
+        updateRelayUI(targetState);
+        showToast("Relay: " + (targetState ? "BẬT (Demo)" : "TẮT (Demo)"));
+        return;
+      }
+
+      try {
+        const res = await fetch(`${espBaseUrl}/api/relay`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ state: targetState ? 1 : 0 })
+        });
+        const data = await res.json();
+        if (data.status === 'ok') {
+          updateRelayUI(data.relay === 1);
+          showToast("Relay: " + (data.relay === 1 ? "BẬT" : "TẮT"));
+        }
+      } catch (err) {
+        showToast("Lỗi gửi lệnh Relay!");
+      }
+    }
+
+    /* 2. CẢM BIẾN GIÓ */
+    const beaufortTable = [
+      { max: 0.2, name: "Cấp 0", desc: "Lặng gió" },
+      { max: 1.5, name: "Cấp 1", desc: "Gió thoảng" },
+      { max: 3.3, name: "Cấp 2", desc: "Gió nhẹ" },
+      { max: 5.4, name: "Cấp 3", desc: "Gió êm" },
+      { max: 7.9, name: "Cấp 4", desc: "Gió vừa" },
+      { max: 10.7, name: "Cấp 5", desc: "Gió khá mạnh" },
+      { max: 13.8, name: "Cấp 6", desc: "Gió mạnh" },
+      { max: 999, name: "Cấp 7+", desc: "Gió bão" },
+    ];
+
+    function updateWindUI(speed) {
+      document.getElementById('windSpeed').textContent = Number(speed).toFixed(1);
+      const item = beaufortTable.find(b => speed <= b.max) || beaufortTable[beaufortTable.length - 1];
+      document.getElementById('windLevel').textContent = item.name;
+      document.getElementById('windDesc').textContent = item.desc;
+    }
+
+    async function fetchWind() {
+      if (isDemoMode) {
+        const fakeSpeed = Math.max(0, Math.min(20, (parseFloat(document.getElementById('windSpeed').textContent) || 3.0) + (Math.random() - 0.48) * 0.8));
+        updateWindUI(fakeSpeed);
+        return;
+      }
+
+      try {
+        const res = await fetch(`${espBaseUrl}/api/wind`, { signal: AbortSignal.timeout(1800) });
+        if (res.ok) {
+          const data = await res.json();
+          updateWindUI(data.speed);
+          updateConnBadge(true);
+        } else {
+          updateConnBadge(false);
+        }
+      } catch (e) {
+        updateConnBadge(false);
+      }
+    }
+
+    /* 3. MODULE XUNG PWM */
+    function formatFreqCommand(val, unit) {
+      if (unit === 'hz') {
+        const n = Math.min(999, Math.max(1, Math.round(val)));
+        return "F" + String(n).padStart(3, '0');
+      } else {
+        if (val < 10.0) return "F" + val.toFixed(2);
+        else if (val < 100.0) return "F" + val.toFixed(1);
+        else {
+          const s = String(Math.min(150, Math.round(val)));
+          return `F${s[0]}.${s[1]}.${s[2]}`;
+        }
+      }
+    }
+
+    async function applyPWM() {
+      const freqNum = parseFloat(document.getElementById('newFreq').value) || 1;
+      const freqUnit = document.getElementById('freqUnit').value;
+      const rawDuty = parseInt(document.getElementById('newDuty').value, 10);
+      const dutyNum = isNaN(rawDuty) ? 50 : Math.min(100, Math.max(1, rawDuty));
+      document.getElementById('newDuty').value = dutyNum;
+
+      const freqCmd = formatFreqCommand(freqNum, freqUnit);
+      const dutyCmd = "D" + String(dutyNum).padStart(3, '0');
+
+      if (isDemoMode) {
+        document.getElementById('curFreq').textContent = `${freqNum} ${freqUnit.toUpperCase()} (${freqCmd})`;
+        document.getElementById('curDuty').textContent = `${dutyNum}% (${dutyCmd})`;
+        showToast("Đã cập nhật xung (Demo)");
+        return;
+      }
+
+      try {
+        const res = await fetch(`${espBaseUrl}/api/pwm`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ freq: freqCmd, duty: dutyCmd })
+        });
+        const data = await res.json();
+        if (data.status === 'ok' || data.status === 'warn') {
+          document.getElementById('curFreq').textContent = `${freqNum} ${freqUnit.toUpperCase()} (${freqCmd})`;
+          document.getElementById('curDuty').textContent = `${dutyNum}% (${dutyCmd})`;
+          showToast("Cập nhật xung thành công!");
+        } else {
+          showToast("Lỗi khi cập nhật xung!");
+        }
+      } catch (err) {
+        showToast("Không kết nối được ESP32!");
+      }
+    }
+
+    async function readPWMStatus() {
+      if (isDemoMode) {
+        document.getElementById('curFreq').textContent = "100 Hz (F100)";
+        document.getElementById('curDuty').textContent = "50% (D050)";
+        showToast("Đã đọc thông số xung (Demo)");
+        return;
+      }
+
+      try {
+        const res = await fetch(`${espBaseUrl}/api/pwm/read`);
+        const data = await res.json();
+        if (data.raw) {
+          showToast("Dữ liệu nhận: " + data.raw);
+        } else {
+          showToast("Đã đọc thông số module");
+        }
+      } catch (err) {
+        showToast("Lỗi khi đọc module xung");
+      }
+    }
+
+    /* ĐỒNG BỘ TOÀN BỘ TRẠNG THÁI */
+    async function fetchAllStatus() {
+      if (isDemoMode) {
+        updateConnBadge(true);
+        document.getElementById('curFreq').textContent = "100 Hz (F100)";
+        document.getElementById('curDuty').textContent = "50% (D050)";
+        updateRelayUI(false);
+        updateWindUI(2.4);
+        return;
+      }
+
+      try {
+        const res = await fetch(`${espBaseUrl}/api/status`, { signal: AbortSignal.timeout(2000) });
+        if (res.ok) {
+          const d = await res.json();
+          updateConnBadge(true);
+          if (d.wind_speed !== undefined) updateWindUI(d.wind_speed);
+          if (d.relay !== undefined) updateRelayUI(d.relay === 1);
+          if (d.pwm_freq) document.getElementById('curFreq').textContent = d.pwm_freq;
+          if (d.pwm_duty) document.getElementById('curDuty').textContent = d.pwm_duty;
+        } else {
+          updateConnBadge(false);
+        }
+      } catch (e) {
+        updateConnBadge(false);
+      }
+    }
+
+    // Khởi chạy
+    window.addEventListener('load', () => {
+      fetchAllStatus();
+      setInterval(fetchWind, 2000); // Tự động cập nhật gió mỗi 2s
+    });
+  </script>
+</body>
+
+</html>

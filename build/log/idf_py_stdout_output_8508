@@ -1,0 +1,61 @@
+Command: ninja all
+[1/52] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ZigbeeCore.cpp.obj
+[2/52] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ZigbeeEP.cpp.obj
+[3/52] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Wire/src/Wire.cpp.obj
+[4/52] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ep/ZigbeeColorDimmerSwitch.cpp.obj
+[5/52] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ep/ZigbeeDimmableLight.cpp.obj
+[6/52] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ep/ZigbeeLight.cpp.obj
+[7/52] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ep/ZigbeeSwitch.cpp.obj
+[8/52] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ep/ZigbeeTempSensor.cpp.obj
+[9/52] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ep/ZigbeeThermostat.cpp.obj
+[10/52] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ep/ZigbeeFlowSensor.cpp.obj
+[11/52] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ep/ZigbeePressureSensor.cpp.obj
+[12/52] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ep/ZigbeeOccupancySensor.cpp.obj
+[13/52] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ep/ZigbeeCarbonDioxideSensor.cpp.obj
+[14/52] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ep/ZigbeeContactSwitch.cpp.obj
+[15/52] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ep/ZigbeeDoorWindowHandle.cpp.obj
+[16/52] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ep/ZigbeeWindowCovering.cpp.obj
+[17/52] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ep/ZigbeeVibrationSensor.cpp.obj
+[18/52] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ep/ZigbeeAnalog.cpp.obj
+[19/52] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ep/ZigbeeRangeExtender.cpp.obj
+[20/52] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ep/ZigbeeGateway.cpp.obj
+[21/52] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/NetworkClientSecure/src/ssl_client.cpp.obj
+[22/52] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ep/ZigbeeWindSpeedSensor.cpp.obj
+[23/52] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ep/ZigbeeIlluminanceSensor.cpp.obj
+[24/52] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ep/ZigbeePM25Sensor.cpp.obj
+[25/52] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ep/ZigbeeElectricalMeasurement.cpp.obj
+[26/52] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ep/ZigbeeBinary.cpp.obj
+[27/52] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ep/ZigbeePowerOutlet.cpp.obj
+[28/52] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ep/ZigbeeFanControl.cpp.obj
+[29/52] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ep/ZigbeeMultistate.cpp.obj
+[30/52] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/WiFi/src/WiFiAP.cpp.obj
+[31/52] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/WiFi/src/WiFi.cpp.obj
+[32/52] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/WiFi/src/WiFiSTA.cpp.obj
+[33/52] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/WiFi/src/AP.cpp.obj
+[34/52] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/WiFiProv/src/WiFiProv.cpp.obj
+[35/52] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/WiFi/src/WiFiMulti.cpp.obj
+[36/52] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/WiFi/src/WiFiScan.cpp.obj
+[37/52] Performing build step for 'bootloader'
+[1/1] C:\WINDOWS\system32\cmd.exe /C "cd /D C:\PHUOCHOA\KLTN\Code\esp32-hello-world\build\bootloader && C:\Espressif\tools\python\v6.0.1\venv\Scripts\python.exe C:/esp/v6.0.1/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 C:/PHUOCHOA/KLTN/Code/esp32-hello-world/build/bootloader/bootloader.bin"
+Bootloader binary size 0x6610 bytes. 0x9f0 bytes (9%) free.
+[38/52] No install step for 'bootloader'
+[39/52] Completed 'bootloader'
+[40/52] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/WiFi/src/STA.cpp.obj
+[41/52] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj
+[42/52] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/WiFi/src/WiFiGeneric.cpp.obj
+[43/52] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/NetworkClientSecure/src/NetworkClientSecure.cpp.obj
+[44/52] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ZigbeeHandlers.cpp.obj
+[45/52] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ep/ZigbeeColorDimmableLight.cpp.obj
+[46/52] Linking C static library esp-idf\arduino\libarduino.a
+[47/52] Linking C static library esp-idf\main\libmain.a
+[48/52] Generating esp-idf/esp_system/ld/sections.ld
+[49/52] Building C object CMakeFiles/hello_world.elf.dir/project_elf_src_esp32.c.obj
+[50/52] Linking CXX executable hello_world.elf
+[51/52] Generating binary image from built executable
+esptool v5.3.0
+Creating ESP32 image...
+Merged 3 ELF sections.
+Successfully created ESP32 image.
+Generated C:/PHUOCHOA/KLTN/Code/esp32-hello-world/build/hello_world.bin
+[52/52] C:\WINDOWS\system32\cmd.exe /C "cd /D C:\PHUOCHOA\KLTN\Code\esp32-hello-world\build && C:\Espressif\tools\python\v6.0.1\venv\Scripts\python.exe C:/esp/v6.0.1/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app C:/PHUOCHOA/KLTN/Code/esp32-hello-world/build/partition_table/partition-table.bin C:/PHUOCHOA/KLTN/Code/esp32-hello-world/build/hello_world.bin"
+hello_world.bin binary size 0x29f80 bytes. Smallest app partition is 0x100000 bytes. 0xd6080 bytes (84%) free.

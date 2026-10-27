@@ -1,0 +1,43 @@
+{
+    "configurations": [
+        {
+            "name": "ESP32",
+            "compilerPath": "C:/Espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc.exe",
+            "compilerArgs": [],
+            "intelliSenseMode": "gcc-arm",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "C:/esp/v6.0.1/esp-idf/components/**",
+                "C:/esp/v6.0.1/esp-idf/components/freertos/FreeRTOS-Kernel/include",
+                "C:/esp/v6.0.1/esp-idf/components/freertos/esp_additions/include",
+                "C:/esp/v6.0.1/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include",
+                "C:/esp/v6.0.1/esp-idf/components/esp_hw_support/include",
+                "C:/esp/v6.0.1/esp-idf/components/esp_rom/include",
+                "C:/esp/v6.0.1/esp-idf/components/hal/include",
+                "C:/esp/v6.0.1/esp-idf/components/log/include",
+                "C:/esp/v6.0.1/esp-idf/components/newlib/platform_include",
+                "C:/esp/v6.0.1/esp-idf/components/soc/esp32/include",
+                "C:/esp/v6.0.1/esp-idf/components/soc/include",
+                "${workspaceFolder}/build/config"
+            ],
+            "defines": [
+                "IDF_VER=\"v6.0.1\"",
+                "ESP_PLATFORM",
+                "CONFIG_IDF_TARGET=\"esp32\"",
+                "__xtensa__",
+                "__XTENSA__"
+            ],
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "browse": {
+                "path": [
+                    "${workspaceFolder}",
+                    "C:/esp/v6.0.1/esp-idf/components"
+                ],
+                "limitSymbolsToIncludedHeaders": false
+            },
+            "compileCommands": "c:\\PHUOCHOA\\KLTN\\Code\\esp32-hello-world\\build\\compile_commands.json"
+        }
+    ],
+    "version": 4
+}

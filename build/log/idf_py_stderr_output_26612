@@ -1,0 +1,4 @@
+Command: ninja all
+ninja: warning: premature end of file; recovering
+ninja: error: remove(esp-idf\mbedtls\mbedtls\tf-psa-crypto\drivers\builtin\CMakeFiles\builtin.dir\src\ecdh.c.obj.d): The process cannot access the file because it is being used by another process.
+

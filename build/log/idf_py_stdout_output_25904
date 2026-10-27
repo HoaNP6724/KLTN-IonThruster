@@ -1,0 +1,146 @@
+Command: ninja all
+[1/137] Building ASM object esp-idf/espressif__esp-dsp/CMakeFiles/__idf_espressif__esp-dsp.dir/modules/dotprod/fixed/dsps_dp_s8_aes3.S.obj
+[2/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/OpenThread/src/OThreadDNSSD.cpp.obj
+[3/137] Linking C static library esp-idf\espressif__esp-dsp\libespressif__esp-dsp.a
+[4/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Matter/src/MatterButton.cpp.obj
+[5/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/RainMaker/src/RMaker.cpp.obj
+[6/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/RainMaker/src/RMakerNode.cpp.obj
+[7/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/RainMaker/src/RMakerParam.cpp.obj
+[8/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Network/src/NetworkUdp.cpp.obj
+[9/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/NetBIOS/src/NetBIOS.cpp.obj
+[10/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/RainMaker/src/RMakerDevice.cpp.obj
+[11/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/RainMaker/src/RMakerType.cpp.obj
+[12/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/RainMaker/src/RMakerQR.cpp.obj
+[13/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/RainMaker/src/RMakerUtils.cpp.obj
+[14/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Network/src/NetworkEvents.cpp.obj
+[15/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Network/src/NetworkInterface.cpp.obj
+[16/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Network/src/NetworkManager.cpp.obj
+[17/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/SimpleBLE/src/SimpleBLE.cpp.obj
+[18/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Preferences/src/Preferences.cpp.obj
+[19/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/RainMaker/src/AppInsights.cpp.obj
+[20/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/LittleFS/src/LittleFS.cpp.obj
+[21/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Network/src/NetworkServer.cpp.obj
+[22/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Network/src/NetworkClient.cpp.obj
+[23/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/PPP/src/PPP.cpp.obj
+[24/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/USB/src/USBAudioCard.cpp.obj
+[25/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/USB/src/USBHID.cpp.obj
+[26/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/HTTPUpdate/src/HTTPUpdateChecksum.cpp.obj
+[27/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/USB/src/USBMIDI.cpp.obj
+[28/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/HTTPClient/src/HTTPClient.cpp.obj
+[29/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/USB/src/USBHIDMouse.cpp.obj
+[30/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/HTTPUpdate/src/HTTPUpdate.cpp.obj
+[31/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/USB/src/USBHostHIDMouse.cpp.obj
+[32/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/USB/src/USBHostHID.cpp.obj
+[33/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/USB/src/USBHostHIDGamepad.cpp.obj
+[34/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/USB/src/USBHostHIDKeyboard.cpp.obj
+[35/137] Building C object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/USB/src/USBHIDReportMapParse.c.obj
+[36/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Ticker/src/Ticker.cpp.obj
+[37/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/USB/src/USBHostHIDReportMapDump.cpp.obj
+[38/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/USB/src/USBHostMSC.cpp.obj
+[39/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/USB/src/USBHostSerial.cpp.obj
+[40/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/USB/src/USBMSCFS.cpp.obj
+[41/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/USB/src/USBHIDKeyboard.cpp.obj
+[42/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Update/src/HttpsOTAUpdate.cpp.obj
+[43/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/SPI/src/SPI.cpp.obj
+[44/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/SD/src/sd_diskio.cpp.obj
+[45/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Update/src/Updater.cpp.obj
+[46/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/SD/src/SD.cpp.obj
+[47/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/SPIFFS/src/SPIFFS.cpp.obj
+[48/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Update/src/UpdaterSHA256.cpp.obj
+[49/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Update/src/UpdaterSHA512.cpp.obj
+[50/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/SD_MMC/src/SD_MMC.cpp.obj
+[51/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/USB/src/USBHIDGamepad.cpp.obj
+[52/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/USB/src/USBHIDConsumerControl.cpp.obj
+[53/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/USB/src/USBHIDSystemControl.cpp.obj
+[54/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/USB/src/USBHIDVendor.cpp.obj
+[55/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/USB/src/USBVendor.cpp.obj
+[56/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/USB/src/USBHostHIDKeyboardDecode.cpp.obj
+[57/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/USB/src/keyboardLayout/KeyboardLayout_de_DE.cpp.obj
+[58/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/USB/src/keyboardLayout/KeyboardLayout_da_DK.cpp.obj
+[59/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/USB/src/keyboardLayout/KeyboardLayout_es_ES.cpp.obj
+[60/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/USB/src/keyboardLayout/KeyboardLayout_en_US.cpp.obj
+[61/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/USB/src/keyboardLayout/KeyboardLayout_fr_CH.cpp.obj
+[62/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/USB/src/keyboardLayout/KeyboardLayout_fr_FR.cpp.obj
+[63/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/USB/src/keyboardLayout/KeyboardLayout_hu_HU.cpp.obj
+[64/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/WebServer/src/middleware/MiddlewareChain.cpp.obj
+[65/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/USB/src/keyboardLayout/KeyboardLayout_it_IT.cpp.obj
+[66/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/USB/src/keyboardLayout/KeyboardLayout_ja_JP.cpp.obj
+[67/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/USB/src/keyboardLayout/KeyboardLayout_pt_BR.cpp.obj
+[68/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/USB/src/keyboardLayout/KeyboardLayout_pt_PT.cpp.obj
+[69/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/USB/src/keyboardLayout/KeyboardLayout_sv_SE.cpp.obj
+[70/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/WebServer/src/Parsing.cpp.obj
+[71/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/WebServer/src/WebServer.cpp.obj
+[72/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/WebServer/src/middleware/AuthenticationMiddleware.cpp.obj
+[73/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/WebServer/src/middleware/CorsMiddleware.cpp.obj
+[74/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/WebServer/src/middleware/LoggingMiddleware.cpp.obj
+[75/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/NetworkClientSecure/src/ssl_client.cpp.obj
+[76/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/WiFi/src/WiFiAP.cpp.obj
+[77/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/WiFi/src/WiFi.cpp.obj
+[78/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ep/ZigbeeColorDimmerSwitch.cpp.obj
+[79/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ep/ZigbeeDimmableLight.cpp.obj
+[80/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ep/ZigbeeLight.cpp.obj
+[81/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ep/ZigbeeSwitch.cpp.obj
+[82/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ep/ZigbeeTempSensor.cpp.obj
+[83/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ep/ZigbeeThermostat.cpp.obj
+[84/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ep/ZigbeeFlowSensor.cpp.obj
+[85/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/NetworkClientSecure/src/NetworkClientSecure.cpp.obj
+[86/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ep/ZigbeePressureSensor.cpp.obj
+[87/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ep/ZigbeeOccupancySensor.cpp.obj
+[88/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ep/ZigbeeCarbonDioxideSensor.cpp.obj
+[89/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/WiFi/src/WiFiGeneric.cpp.obj
+[90/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ep/ZigbeeContactSwitch.cpp.obj
+[91/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ep/ZigbeeDoorWindowHandle.cpp.obj
+[92/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ep/ZigbeeWindowCovering.cpp.obj
+[93/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ep/ZigbeeVibrationSensor.cpp.obj
+[94/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ep/ZigbeeAnalog.cpp.obj
+[95/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ep/ZigbeeRangeExtender.cpp.obj
+[96/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ep/ZigbeeGateway.cpp.obj
+[97/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ep/ZigbeeWindSpeedSensor.cpp.obj
+[98/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ep/ZigbeeIlluminanceSensor.cpp.obj
+[99/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ep/ZigbeeElectricalMeasurement.cpp.obj
+[100/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ep/ZigbeePM25Sensor.cpp.obj
+[101/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ep/ZigbeeBinary.cpp.obj
+[102/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ep/ZigbeeFanControl.cpp.obj
+[103/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ep/ZigbeePowerOutlet.cpp.obj
+[104/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ep/ZigbeeMultistate.cpp.obj
+[105/137] Linking C static library esp-idf\cmock\libcmock.a
+[106/137] Linking C static library esp-idf\esp_blockdev_util\libesp_blockdev_util.a
+[107/137] Linking C static library esp-idf\esp_driver_cam\libesp_driver_cam.a
+[108/137] Linking C static library esp-idf\esp_driver_pcnt\libesp_driver_pcnt.a
+[109/137] Linking C static library esp-idf\esp_driver_mcpwm\libesp_driver_mcpwm.a
+[110/137] Linking C static library esp-idf\esp_driver_sdio\libesp_driver_sdio.a
+[111/137] Linking C static library esp-idf\esp_driver_twai\libesp_driver_twai.a
+[112/137] Linking C static library esp-idf\esp_lcd\libesp_lcd.a
+[113/137] Linking C static library esp-idf\esp_local_ctrl\libesp_local_ctrl.a
+[114/137] Linking C static library esp-idf\perfmon\libperfmon.a
+[115/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/WiFi/src/WiFiMulti.cpp.obj
+[116/137] Linking C static library esp-idf\rt\librt.a
+[117/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/WiFi/src/WiFiScan.cpp.obj
+[118/137] Performing build step for 'bootloader'
+[1/1] C:\WINDOWS\system32\cmd.exe /C "cd /D C:\PHUOCHOA\KLTN\Code\esp32-hello-world\build\bootloader && C:\Espressif\tools\python\v6.0.1\venv\Scripts\python.exe C:/esp/v6.0.1/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 C:/PHUOCHOA/KLTN/Code/esp32-hello-world/build/bootloader/bootloader.bin"
+Bootloader binary size 0x6610 bytes. 0x9f0 bytes (9%) free.
+[119/137] No install step for 'bootloader'
+[120/137] Completed 'bootloader'
+[121/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/WiFi/src/WiFiSTA.cpp.obj
+[122/137] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj
+[123/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/WiFi/src/STA.cpp.obj
+[124/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ZigbeeEP.cpp.obj
+[125/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ZigbeeCore.cpp.obj
+[126/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ZigbeeHandlers.cpp.obj
+[127/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Wire/src/Wire.cpp.obj
+[128/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/Zigbee/src/ep/ZigbeeColorDimmableLight.cpp.obj
+[129/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/WiFiProv/src/WiFiProv.cpp.obj
+[130/137] Building CXX object esp-idf/arduino/CMakeFiles/__idf_arduino.dir/libraries/WiFi/src/AP.cpp.obj
+[131/137] Linking C static library esp-idf\arduino\libarduino.a
+[132/137] Linking C static library esp-idf\main\libmain.a
+[133/137] Generating esp-idf/esp_system/ld/sections.ld
+[134/137] Building C object CMakeFiles/hello_world.elf.dir/project_elf_src_esp32.c.obj
+[135/137] Linking CXX executable hello_world.elf
+[136/137] Generating binary image from built executable
+esptool v5.3.0
+Creating ESP32 image...
+Merged 3 ELF sections.
+Successfully created ESP32 image.
+Generated C:/PHUOCHOA/KLTN/Code/esp32-hello-world/build/hello_world.bin
+[137/137] C:\WINDOWS\system32\cmd.exe /C "cd /D C:\PHUOCHOA\KLTN\Code\esp32-hello-world\build && C:\Espressif\tools\python\v6.0.1\venv\Scripts\python.exe C:/esp/v6.0.1/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app C:/PHUOCHOA/KLTN/Code/esp32-hello-world/build/partition_table/partition-table.bin C:/PHUOCHOA/KLTN/Code/esp32-hello-world/build/hello_world.bin"
+hello_world.bin binary size 0x29f80 bytes. Smallest app partition is 0x100000 bytes. 0xd6080 bytes (84%) free.
